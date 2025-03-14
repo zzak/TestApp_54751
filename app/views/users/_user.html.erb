@@ -4,4 +4,12 @@
     <%= link_to user.avatar.filename, user.avatar if user.avatar.attached? %>
   </p>
 
+  <p><strong>photos:</strong>
+  <ul>
+    <% user.photos.with_all_variant_records.each do |photo| %>
+      <li><%= image_tag photo.variant(:thumb) %></li>
+    <% end %>
+  </ul>
+
+
 </div>
